@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div id="book-header" style="border:1px solid #000">
+  <img src="" width="70" height="80" style="float:left" />
+  <h1><%= @book.title %></h1>
+  <h2><%= @book.subtitle %></h2>
+  <p>By <%= @book.author %></p>
+</div>
+
+<p>
+  <b>Isbn10:</b>
+  <%= @book.isbn10 %>
+</p>
+
+<p>
+  <b>Isbn13:</b>
+  <%= @book.isbn13 %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
