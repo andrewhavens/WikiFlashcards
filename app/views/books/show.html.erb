@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<div id="book-header" style="border:1px solid #000">
-  <img src="" width="70" height="80" style="float:left" />
-  <h1><%= @book.title %></h1>
-  <h2><%= @book.subtitle %></h2>
-  <p>By <%= @book.author %></p>
-</div>
+<table>
+  <tr>
+    <td>
+      <img src="/images/book-cover.jpg" width="100" />
+    </td>
+    <td>
+      <span class="book-title"><%= @book.title %>:</span> <span class="book-subtitle"><%= @book.subtitle %></span><br />
+      <span class="book-author"><%= @book.author %></span><br />
+      <span class="book-isbns"><%= @book.isbn10 %> / <%= @book.isbn13 %></span>
+    </td>
+  </tr>
+</table>
 
 <p>
-  <b>Isbn10:</b>
-  <%= @book.isbn10 %>
-</p>
-
-<p>
-  <b>Isbn13:</b>
-  <%= @book.isbn13 %>
+  
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
