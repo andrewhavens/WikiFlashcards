@@ -17,5 +17,12 @@
   <%= @book.isbn13 %>
 </p>
 
+<h2>Chapters</h2>
+<ul>
+<% @book.chapters.each do |chapter| %>
+<li><%= chapter.title %></li>
+<% end %>
+</ul>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
