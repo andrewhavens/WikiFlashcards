@@ -1,0 +1,14 @@
+<h1><%= link_to @book.title + ' : '  + @book.subtitle, @book %></h1>
+<h2><%= @chapter.title %></h2>
+
+<h3>Flashcards</h3>
+<ul>
+<% @chapter.cards.each do |card| %>
+  <li><%= card.side1 %> : <%= card.side2 %> <%= link_to 'Destroy', chapter_card_path(@chapter, card), :confirm => 'Are you sure?', :method => :delete %></li>
+<% end %>
+</ul>
+
+<a href="#">Add a new Card</a>
+<div>
+  <%= render "cards/form" %> 
+</div>

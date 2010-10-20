@@ -1,0 +1,24 @@
+<div id="search-bar">
+  <%= render 'search-form' %>
+</div>
+
+<div id="search-results">
+
+  <h2 class="category-heading">Books</h2>
+
+  <% if @books.empty? %>
+    <p>No books found that match your search.</p>
+  <% else %>
+    <% @books.each do |book| %>
+    <div class="book-result" onclick="location.href='<%= url_for book %>';">
+      <%= image_tag book.cover.url(:medium), :class => 'book-cover' %>
+      <h3 class="book-title"><%= link_to book.title + ' : ' + book.subtitle, book %></h3>
+      <span class="book-author"><%= book.author %></span> / <span class="book-publisher">Publisher Here</span>
+    </div>
+    <% end %>
+  <% end %>
+
+  <p>Didn't find the book you were looking for? 
+    Create a <%= link_to 'New Book', new_book_path %>.</p>
+
+</div>

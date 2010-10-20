@@ -1,0 +1,126 @@
+#header {
+  background-color: #2BAD29;
+  border-bottom: 2px solid #2BAD29;
+}
+
+#header-content {
+  width: 800px;
+  margin: 0 auto;
+}
+
+#header h1 {
+  display: inline-block;
+}
+
+#header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#header h1 a:hover {
+  color: #fff;
+  border-bottom: 1px dotted #fff;
+  background: none;
+}
+
+#auth-nav {
+  float: right;
+  background-color: #fff;
+}
+
+#auth-nav .email {
+  font-weight: bold;
+}
+
+#content {
+  width: 800px;
+  margin: 0 auto;
+}
+
+#homepage-search-box {
+  width: 500px; 
+  margin: 0 auto; 
+  padding: 2em;
+  border: 1px solid #000;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+#search-bar {
+  width: 500px; 
+  margin: 0 auto;
+  text-align: center;
+}
+
+#search-form input[type=text] {
+  width: 75%;
+  border: 1px solid #000;
+  padding: 10px;
+  height: 20px;
+  font-size: 16px;
+}
+
+#search-results .category-heading {
+  border-bottom: 1px solid #000;
+  font-size: 22px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.book-result {
+  border-bottom: 1px dotted #000;
+  float: left;
+  width: 780px;
+  padding: 10px;
+}
+
+.book-result:hover {
+  background-color: #FCFFCC;
+  cursor: pointer;
+}
+
+.book-result .book-cover {
+  border: 1px solid #000;
+  float: left;
+  width: 80px;
+  margin-right: 10px;
+}
+
+.book-result .book-title a {
+  text-decoration: none;
+  color: #3399CC;
+  font-size: 18px;
+}
+
+.book-result .book-title a:hover {
+  background: none;
+  text-decoration: underline;
+}
+
+.book-result .book-author {
+  font-weight: bold;
+}
+
+.book-result .book-publisher {  
+}
+
+#book-header h1 {
+  font-size: 18px;
+}
+
+#book-header h1 a {
+  text-decoration: none;
+  color: #000;
+}
+
+#book-header h1 a:hover {
+  text-decoration: underline;
+  background: none;
+  color: #000;
+}
+
+#book-header .book-cover {
+  float: left;
+}
