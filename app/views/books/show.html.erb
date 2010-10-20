@@ -1,26 +1,18 @@
-<table>
-  <tr>
-    <td>
-      <img src="/images/book-cover.jpg" width="100" />
-    </td>
-    <td>
-      <span class="book-title"><%= @book.title %>:</span> <span class="book-subtitle"><%= @book.subtitle %></span><br />
-      <span class="book-author"><%= @book.author %></span><br />
-      <span class="book-isbns"><%= @book.isbn10 %> / <%= @book.isbn13 %></span>
-    </td>
-  </tr>
-</table>
+<div id="book-header">
+  <%= image_tag @book.cover.url(:medium), :class => 'book-cover' %>
+  <h1><%= link_to @book.title + ' : '  + @book.subtitle, @book %></h1>
+  <span class="book-author"><%= @book.author %></span><br />
+  <span class="book-isbns"><%= @book.isbn10 %> / <%= @book.isbn13 %></span><br />
+  <%= link_to 'Edit Book Details', edit_book_path(@book) %>
+</div>
 
-<p>
-  
-</p>
-
-<h2>Chapters</h2>
+<h2 style="clear:left">Chapters</h2>
 <ul>
 <% @book.chapters.each do |chapter| %>
-<li><%= chapter.title %></li>
+  <li><%= link_to chapter.title, book_chapter_path(@book, chapter) %> Cards: <%= chapter.cards.length %></li>
 <% end %>
 </ul>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<a href="#" id="add_new_chapter">Add a new Chapter</a>
+<div id="new_chapter_form">
+  <%= render "chapters/form" %> 
+</div>

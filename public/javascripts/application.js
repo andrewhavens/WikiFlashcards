@@ -1,2 +1,10 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+jQuery(function($){
+
+  $('#new_chapter_form').hide();
+  
+  $('#add_new_chapter').click(function(e)){
+    e.preventDefault();
+    $('#new_chapter_form').show();
+  });
+  
+});

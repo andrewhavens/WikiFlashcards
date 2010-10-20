@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
+gem 'jquery-rails'
 gem "devise", :git => "git://github.com/plataformatec/devise.git"
-
+gem 'paperclip'
 gem 'httparty'
 
 # Bundle edge Rails instead:

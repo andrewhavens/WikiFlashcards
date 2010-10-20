@@ -46,11 +46,16 @@ GEM
     httparty (0.6.1)
       crack (= 0.1.8)
     i18n (0.4.1)
+    jquery-rails (0.2.2)
+      rails (~> 3.0)
     mail (2.2.5)
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
+    paperclip (2.3.4)
+      activerecord
+      activesupport
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -85,5 +90,7 @@ PLATFORMS
 DEPENDENCIES
   devise!
   httparty
+  jquery-rails
+  paperclip
   rails (= 3.0.0)
   sqlite3-ruby

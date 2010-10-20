@@ -1,11 +1,17 @@
 Wikiflashcards::Application.routes.draw do
-  
-  resources :books do
-    resources :chapters
-  end
 
   devise_for :users
 
+  resources :books do
+    resources :chapters
+  end
+  
+  resources :chapters do
+    resources :cards
+  end
+
+  match 'search' => 'home#search'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
