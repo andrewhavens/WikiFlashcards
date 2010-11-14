@@ -1,0 +1,30 @@
+body {
+  color: #333;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+#content h1, 
+#content h2, 
+#content h3, 
+#content h4, 
+#content h5, 
+#content h6 {
+  color: #000;
+}
+
+
+a, a:visited {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: none;
+  background: #2BAD29;
+}
