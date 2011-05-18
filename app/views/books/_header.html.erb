@@ -1,0 +1,7 @@
+<div id="book_header">
+  <%= image_tag @book.cover.url(:medium), :class => 'book-cover' %>
+  <h1><%= link_to @book.title + ' : '  + @book.subtitle, @book %></h1>
+  Author: <span class="book-author"><%= @book.author %></span><br />
+  ISBN: <span class="book-isbns"><%= @book.isbn10 %> / <%= @book.isbn13 %></span><br />
+  <%= link_to 'Edit Book Details', edit_book_path(@book), :class => 'edit' %>
+</div>

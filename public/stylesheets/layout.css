@@ -1,0 +1,80 @@
+#header {
+  background-color: #2BAD29;
+  border-bottom: 2px solid #2BAD29;
+}
+
+#header_content {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#header h1 {
+	margin-left: 20px;
+  display: inline-block;
+}
+
+#header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#header h1 a:hover {
+  color: #fff;
+  border-bottom: 1px dotted #fff;
+  background: none;
+}
+
+#auth_nav {
+  float: right;
+	margin-right: 20px;
+  background-color: #fff;
+}
+
+#auth_nav .email {
+  font-weight: bold;
+}
+
+#sidebar {
+	width: 450px;
+	float: left;
+	margin-right: 40px;
+	padding: 20px 0 0 20px;
+}
+
+#content {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#footer {
+	clear: both;
+	float: left;
+	width: 100%;
+	min-height: 100px;
+  background-color: #bbb;
+	margin-top: 5em;
+}
+
+#homepage-search-box {
+  width: 500px; 
+  margin: 0 auto; 
+  padding: 2em;
+  border: 1px solid #000;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+#books_layout #header_content {
+  width: 100%;
+}
+
+#books_layout #content {
+	width: 500px;
+	float: left;
+	padding-top: 20px;
+}
+
+
+

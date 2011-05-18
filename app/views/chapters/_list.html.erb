@@ -1,0 +1,32 @@
+<h2>Chapters<span class="action_link"><%= link_to 'Add a new chapter', new_book_chapter_path(@book) %></span></h2>
+<!--<a href="#" id="reorder_chapters">Reorder</a>-->
+<ul id="chapters_list">
+<% @book.chapters.each do |chapter| %>
+	<% current_chapter = @chapter.id unless @chapter == nil %>
+	<a href="<%= book_chapter_path(@book, chapter) %>">
+  	<li class="<%= 'current' if chapter.id == current_chapter %>">
+			<span class="card_count"><%= chapter.cards.length %> cards</span>
+			<%= chapter.title %>
+		</li>
+	</a>
+<% end %>
+</ul>
+
+<!-- <a href="#" id="add_new_chapter">Add a new Chapter</a> -->
+<div id="new_chapter_form" title="Add new chapter" style="display:none">
+  <%= render "chapters/form" %> 
+</div>
+
+<script>
+$(document).ready(function(){
+  $('#new_chapter_form').dialog({ autoOpen: false, modal: true });
+  $('#add_new_chapter').click(function(){
+    $('#new_chapter_form').dialog('open');
+		return false;
+  });
+  $('#reorder_chapters').click(function(){
+    $('#chapters').sortable();
+		return false;
+  });
+});
+</script>

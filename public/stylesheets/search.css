@@ -1,0 +1,62 @@
+#search-bar {
+  width: 500px; 
+  margin: 0 auto;
+  text-align: center;
+}
+
+#search-form input[type=text] {
+  width: 75%;
+  border: 1px solid #000;
+  padding: 10px;
+  height: 20px;
+  font-size: 16px;
+}
+
+#search-results {
+	width: 800px;
+	margin: 0 auto;
+}
+
+#search-results .category-heading {
+  border-bottom: 1px solid #000;
+  font-size: 22px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.book-result {
+  border-bottom: 1px dotted #000;
+  float: left;
+  width: 780px;
+  padding: 10px;
+}
+
+.book-result:hover {
+  background-color: #FCFFCC;
+  cursor: pointer;
+}
+
+.book-result .book-cover {
+  border: 1px solid #000;
+  float: left;
+  width: 80px;
+  margin-right: 10px;
+}
+
+.book-result .book-title a {
+  text-decoration: none;
+  color: #3399CC;
+  font-size: 18px;
+}
+
+.book-result .book-title a:hover {
+  background: none;
+  text-decoration: underline;
+}
+
+.book-result .book-author {
+  font-weight: bold;
+}
+
+.book-result .book-publisher {  
+}

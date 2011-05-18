@@ -1,0 +1,25 @@
+
+#chapters_list {
+	width: 80%;
+	margin: 0;
+	padding: 0;
+}
+
+#chapters_list li {
+	padding: 0.5em 1em;
+	margin: 1px 0;
+	list-style: none;
+}
+
+#chapters_list a:hover li, #chapters_list li.current {
+  text-decoration: none;
+  color: #000;
+  background: #ccc;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#chapters_list .card_count {
+	float: right;
+}

@@ -1,0 +1,25 @@
+#book_header {
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  padding-bottom: 1em;
+}
+
+#book_header h1 {
+  font-size: 18px;
+}
+
+#book_header h1 a {
+  text-decoration: none;
+  color: #000;
+}
+
+#book_header h1 a:hover {
+  text-decoration: underline;
+  background: none;
+  color: #000;
+}
+
+#book_header .book-cover {
+  float: left;
+  margin-right: 1em;
+}
