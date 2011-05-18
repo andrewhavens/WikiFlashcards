@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101012035534) do
+ActiveRecord::Schema.define(:version => 20110517045924) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20101012035534) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "cards_side1"
+    t.string   "cards_side2"
   end
 
   create_table "cards", :force => true do |t|

@@ -14,12 +14,13 @@
 
 <div id="header">
   <div id="header-content">
-    <h1><a href="/">WikiFlashcards</a><span id="version">(alpha)</span></h1>
+    <h1><a href="/">WikiFlashcards</a></h1>
     <div id="auth-nav">
       <% if user_signed_in? %>
         <span class="email"><%= current_user.email %></span>
         <span class="sign-out"><%= link_to "Sign out", destroy_user_session_path %></span>
       <% else %>
+		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
         <span class="sign-up"><%= link_to "Sign up", new_user_registration_path %></span> 
         or 
         <span class="sign-in"><%= link_to "Sign in", new_user_session_path %></span>

@@ -43,7 +43,7 @@ Devise.setup do |config|
   # from others authentication tools as :clearance_sha1, :authlogic_sha512 (then
   # you should set stretches above to 20 for default behavior) and :restful_authentication_sha1
   # (then you should set stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
-  config.encryptor = :bcrypt
+  # config.encryptor = :bcrypt # I guess this isn't needed anymore
 
   # Setup a pepper to generate the encrypted password.
   config.pepper = "cfe2d9e4f3e3aaf244818fce833e946f04616a711db8ae6bd6e42c721cf1c2151c0ff0ac64bc482f90f702a5de7681985a0b373e689491d72d090b3ff876f69f"
@@ -139,4 +139,6 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
+  
+  config.omniauth :facebook, "123084677740827", "3e136827907c47248aba61a0b76d5f38"
 end

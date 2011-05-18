@@ -1,10 +1,10 @@
-<%= form_for([@chapter, @chapter.cards.build]) do |f| %>
+<%= form_for([@chapter, @card]) do |f| %>
   <div class="field">
-    <%= f.label :side1 %><br />
+    <%= f.label @book.cards_side1 %><br />
     <%= f.text_field :side1 %>
   </div>  
   <div class="field">
-    <%= f.label :side2 %><br />
+    <%= f.label @book.cards_side2 %><br />
     <%= f.text_field :side2 %>
   </div> 
   <div class="actions">

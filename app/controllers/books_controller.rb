@@ -1,44 +1,27 @@
 class BooksController < ApplicationController  
+  respond_to :html, :xml, :json
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
     @books = Book.all
-    
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @books }
-    end
+    respond_with(@books)
   end
 
-  # GET /books/1
-  # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @book }
-    end
+    @chapter = @book.chapters.new #for new chapter modal
+    respond_with(@book)
   end
 
-  # GET /books/new
-  # GET /books/new.xml
   def new
     @book = Book.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @book }
-    end
+    respond_with(@book)
   end
 
-  # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
   end
 
-  # POST /books
-  # POST /books.xml
   def create
     @book = Book.new(params[:book])
 
@@ -53,8 +36,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # PUT /books/1
-  # PUT /books/1.xml
   def update
     @book = Book.find(params[:id])
 
@@ -69,8 +50,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.xml
   def destroy
     @book = Book.find(params[:id])
     @book.destroy

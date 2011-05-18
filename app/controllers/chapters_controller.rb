@@ -1,9 +1,17 @@
 class ChaptersController < ApplicationController
   respond_to :html, :xml, :json
+  before_filter :authenticate_user!, :except => [:index, :show]
+  
+  def index
+    @book = Book.find(params[:book_id])
+    @chapters = @book.chapters.all
+    respond_with(@chapters)
+  end
   
   def show
     @book = Book.find(params[:book_id])
     @chapter = Chapter.find(params[:id])
+    @card = @chapter.cards.new #for new card modal
     respond_with(@chapter)
   end
   
@@ -33,8 +41,6 @@ class ChaptersController < ApplicationController
     end
   end
 
-  # DELETE /chapters/1
-  # DELETE /chapters/1.xml
   def destroy
     @chapter = Chapter.find(params[:id])
     @chapter.destroy

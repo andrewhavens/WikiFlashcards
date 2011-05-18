@@ -2,7 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 gem 'jquery-rails'
-gem "devise", :git => "git://github.com/plataformatec/devise.git"
+gem "devise", :git => "git://github.com/plataformatec/devise.git", :tag => "v1.2.rc2"
+gem "oa-oauth", :require => "omniauth/oauth"
 gem 'paperclip'
 gem 'httparty'
 

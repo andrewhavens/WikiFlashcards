@@ -1,14 +1,31 @@
-<h1><%= link_to @book.title + ' : '  + @book.subtitle, @book %></h1>
+<div id="book-header">
+  <%= image_tag @book.cover.url(:medium), :class => 'book-cover' %>
+  <h1><%= link_to @book.title + ' : '  + @book.subtitle, @book %></h1>
+  Author: <span class="book-author"><%= @book.author %></span><br />
+  ISBN: <span class="book-isbns"><%= @book.isbn10 %> / <%= @book.isbn13 %></span><br />
+  <%= link_to 'Edit Book Details', edit_book_path(@book), :class => 'edit' %>
+</div>
+
 <h2><%= @chapter.title %></h2>
 
 <h3>Flashcards</h3>
 <ul>
 <% @chapter.cards.each do |card| %>
-  <li><%= card.side1 %> : <%= card.side2 %> <%= link_to 'Destroy', chapter_card_path(@chapter, card), :confirm => 'Are you sure?', :method => :delete %></li>
+  <li><%= card.side1 %> : <%= card.side2 %> <%= link_to 'Edit', edit_card_path(card) %> <%= link_to 'Destroy', chapter_card_path(@chapter, card), :confirm => 'Are you sure?', :method => :delete %></li>
 <% end %>
 </ul>
 
-<a href="#">Add a new Card</a>
-<div>
+<a id="add_new_card" href="#">Add more cards</a>
+<div id="new_card_form">
   <%= render "cards/form" %> 
 </div>
+
+<script>
+	$(document).ready(function(){
+		$('#new_card_form').hide();
+		$('#add_new_card').click(function(){
+			$('#new_card_form').slideDown();
+			return false;
+		});
+	});
+</script>

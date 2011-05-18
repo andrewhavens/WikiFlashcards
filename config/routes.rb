@@ -1,6 +1,6 @@
 Wikiflashcards::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :books do
     resources :chapters
@@ -9,7 +9,9 @@ Wikiflashcards::Application.routes.draw do
   resources :chapters do
     resources :cards
   end
-
+  
+  resources :cards
+  
   match 'search' => 'home#search'
   
   # The priority is based upon order of creation:
