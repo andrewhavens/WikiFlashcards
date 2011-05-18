@@ -1,6 +1,7 @@
 class BooksController < ApplicationController  
   respond_to :html, :xml, :json
   before_filter :authenticate_user!, :except => [:index, :show]
+  layout 'books'
   
   def index
     @books = Book.all
@@ -19,7 +20,10 @@ class BooksController < ApplicationController
   end
 
   def edit
+    # TODO: figure out how to switch layouts in controller action
+    # layout 'application'
     @book = Book.find(params[:id])
+    @chapter = @book.chapters.new #for sidebar
   end
 
   def create

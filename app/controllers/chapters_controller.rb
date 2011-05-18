@@ -1,6 +1,7 @@
 class ChaptersController < ApplicationController
   respond_to :html, :xml, :json
   before_filter :authenticate_user!, :except => [:index, :show]
+  layout 'books'
   
   def index
     @book = Book.find(params[:book_id])
@@ -27,12 +28,17 @@ class ChaptersController < ApplicationController
     redirect_to book_path(@book)    
   end
   
+  def edit
+    @chapter = Chapter.find(params[:id])
+    @book = @chapter.book
+  end
+  
   def update
     @chapter = Chapter.find(params[:id])
 
     respond_to do |format|
       if @chapter.update_attributes(params[:chapter])
-        format.html { redirect_to(@chapter, :notice => 'Chapter was successfully updated.') }
+        format.html { redirect_to book_chapter_path(@chapter.book, @chapter), :notice => 'Chapter was successfully updated.' }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

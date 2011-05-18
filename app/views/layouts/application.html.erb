@@ -13,9 +13,9 @@
 <body>
 
 <div id="header">
-  <div id="header-content">
+  <div id="header_content">
     <h1><a href="/">WikiFlashcards</a></h1>
-    <div id="auth-nav">
+    <div id="auth_nav">
       <% if user_signed_in? %>
         <span class="email"><%= current_user.email %></span>
         <span class="sign-out"><%= link_to "Sign out", destroy_user_session_path %></span>
@@ -34,5 +34,7 @@
   <p id="alert"><%= alert %></p>
   <%= yield %>
 </div>
+
+<div id="footer"></div>
 </body>
 </html>

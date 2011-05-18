@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   respond_to :html, :xml, :json
   before_filter :authenticate_user!, :except => [:index, :show]
+  layout 'books'
   
   def show
     @chapter = Chapter.find(params[:chapter_id])
@@ -40,7 +41,7 @@ class CardsController < ApplicationController
     
     respond_to do |format|
       if @card.update_attributes(params[:card])
-        format.html { redirect_to(@card, :notice => 'Card was successfully updated.') }
+        format.html { redirect_to book_chapter_path(@chapter.book, @chapter), :notice => 'Card was successfully updated.' }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
