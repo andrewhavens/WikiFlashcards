@@ -1,4 +1,4 @@
-<h2>Chapters<span class="action_link"><%= link_to 'Add a new chapter', new_book_chapter_path(@book) %></span></h2>
+<h2>Chapters<span class="action_link"><%= link_to 'Add a new chapter', new_book_chapter_path(@book), :id => "add_new_chapter" %></span></h2>
 <!--<a href="#" id="reorder_chapters">Reorder</a>-->
 <ul id="chapters_list">
 <% @book.chapters.each do |chapter| %>
@@ -12,7 +12,6 @@
 <% end %>
 </ul>
 
-<!-- <a href="#" id="add_new_chapter">Add a new Chapter</a> -->
 <div id="new_chapter_form" title="Add new chapter" style="display:none">
   <%= render "chapters/form" %> 
 </div>
