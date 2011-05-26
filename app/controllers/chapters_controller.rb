@@ -56,4 +56,12 @@ class ChaptersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def quiz
+    @chapter = Chapter.find(params[:id])
+    @book = @chapter.book
+    @cards = @chapter.cards
+    #respond_with(@cards)
+    render :layout => 'quiz'
+  end
 end
