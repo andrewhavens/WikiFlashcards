@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   respond_to :html, :xml, :json
   before_filter :authenticate_user!, :except => [:index, :show]
   
-  def index
+  def my_books
+  	#find just the books that is saved in user preferences
     @books = Book.all
     respond_with(@books)
     render :layout => 'application'

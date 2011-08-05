@@ -11,13 +11,22 @@
 
 	<h3>Flashcards <span class="action_link"><%= link_to 'Add more cards', new_chapter_card_path(@chapter) %></span></h3>
 	<table id="flashcards_list" cellspacing="0">
-		<% @chapter.cards.each do |card| %>
+		<thead>
 			<tr>
-				<td width="40%"><%= card.side1 %></td>
-				<td width="40%"><%= card.side2 %></td>
-			  <td><%= link_to 'Edit', edit_card_path(card) %> <%= link_to 'Delete', chapter_card_path(@chapter, card), :confirm => 'Are you sure?', :method => :delete %></td>
+				<th><%= @book.cards_side1 %></th>
+				<th><%= @book.cards_side2 %></th>
+				<th width="100"></th>
 			</tr>
-		<% end %>
+		</thead>
+		<tbody>
+			<% @chapter.cards.each do |card| %>
+				<tr>
+					<td style="font-weight: bold"><%= card.side1 %></td>
+					<td><%= card.side2 %></td>
+					<td><span class="card_actions"><%= link_to 'Edit', edit_card_path(card) %> <%= link_to 'Delete', chapter_card_path(@chapter, card), :confirm => 'Are you sure?', :method => :delete %></span></td>
+				</tr>
+			<% end %>
+		</tbody>
 	</table>
 
 	<!-- <a id="add_new_card" href="#">Add more cards</a> -->
@@ -28,7 +37,22 @@
 <% end %>
 
 <h3>History</h3>
-Information goes here.
+<%= link_to "View Full History", chapter_history_path(@chapter) %>
+<ul id="chapter_history">
+<% @card_versions.each do |card_version| %>
+	<li>
+		<%= time_ago_in_words(card_version.created_at).capitalize %> ago:
+		<%= User.find(card_version.whodunnit).first_name %>
+		<% if (card_version.event == 'create') %>
+			added a new flashcard!
+		<% elsif (card_version.event == 'update') %>
+			updated an existing flashcard.
+		<% else %>
+			removed a flashcard.
+		<% end %>
+	</li>
+<% end %>
+</ul>
 
 <script>
 	$(document).ready(function(){

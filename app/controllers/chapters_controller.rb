@@ -13,6 +13,7 @@ class ChaptersController < ApplicationController
     @book = Book.find(params[:book_id])
     @chapter = Chapter.find(params[:id])
     @card = @chapter.cards.new #for new card modal
+    @card_versions = CardVersion.where('chapter_id = ?', @chapter.id).order('created_at DESC')
     respond_with(@chapter)
   end
   
@@ -63,5 +64,11 @@ class ChaptersController < ApplicationController
     @cards = @chapter.cards
     #respond_with(@cards)
     render :layout => 'quiz'
+  end
+  
+  def history
+    @chapter = Chapter.find(params[:id])
+    @book = @chapter.book
+    @card_versions = CardVersion.where('chapter_id = ?', params[:id]).order('created_at DESC')
   end
 end

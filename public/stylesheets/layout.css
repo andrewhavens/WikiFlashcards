@@ -8,8 +8,11 @@
   margin: 0 auto;
 }
 
+/*wikiflashcards logo link*/
 #header h1 {
-	margin-left: 20px;
+	float: left;
+	font-size: 26px;
+	margin: 17px 0 17px 20px;
   display: inline-block;
 }
 
@@ -22,6 +25,23 @@
   color: #fff;
   border-bottom: 1px dotted #fff;
   background: none;
+}
+
+#main_nav {
+	float: left;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 21px 0 0 0;
+}
+
+#main_nav li {
+	display: inline;
+	list-style-type: none;
+	margin-right: 1em;
+}
+
+#main_nav li a {
+	text-decoration: none;
 }
 
 #auth_nav {

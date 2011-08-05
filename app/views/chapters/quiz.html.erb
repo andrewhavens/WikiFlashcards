@@ -23,28 +23,13 @@
 			<td class="card"><%= @cards.first.side1 %></td>
 			<td><a id="next_card" href="#" title="Next">&gt;</a></td>
 		</tr>
-		<tr>
-			<td></td>
-			<td><a id="flip_card" href="#">Flip Card</a></td>
-			<td></td>
-		</tr>
-	</table>
-	
-	<h3>Flashcards <span class="action_link"><%= link_to 'Add more cards', new_chapter_card_path(@chapter) %></span></h3>
-	<table id="flashcards_list" cellspacing="0">
-		<% @cards.each do |card| %>
-			<tr>
-				<td width="40%"><%= card.side1 %></td>
-				<td width="40%"><%= card.side2 %></td>
-			  <td><%= link_to 'Edit', edit_card_path(card) %> <%= link_to 'Delete', chapter_card_path(@chapter, card), :confirm => 'Are you sure?', :method => :delete %></td>
-			</tr>
-		<% end %>
 	</table>
 	
 <% end %>
 
 <script>
 $(document).ready(function(){
+	
 	var current_card_index = 0;
 	var current_side = 1;
 	var cards = [];
@@ -58,36 +43,57 @@ $(document).ready(function(){
 	
 	$('#prev_card').click(function(e){
 		e.preventDefault();
-		var current_card = cards[current_card_index];
 		if (current_side == 2) {
-			var text = current_card.side1;
 			current_side = 1;
-		} else {
-			current_card_index--;
 			var current_card = cards[current_card_index];
 			var text = current_card.side1;
-			current_side = 1;
+			$('#quiz .card').text(text);
+			$("#quiz .card").flip({
+				direction: 'lr',
+				color: '#ffffff'
+			});
+		} else {
+			current_side = 2;
+			if (current_card_index == 0) {
+				current_card_index = cards.length - 1;
+			} else {
+				current_card_index--;
+			}
+			var current_card = cards[current_card_index];
+			var text = current_card.side2;
 			$('#current_position_counter .current').text(current_card_index + 1);
+			$('#quiz .card').fadeOut(function(){
+				$('#quiz .card').text(text);
+				$('#quiz .card').fadeIn();
+			});
 		}
-		$('#quiz .card').text(text);
 	});
 	
 	$('#next_card').click(function(e){
 		e.preventDefault();
-		var current_card = cards[current_card_index];
 		if (current_side == 1) {
-			var text = current_card.side2;
 			current_side = 2;
+			var current_card = cards[current_card_index];
+			var text = current_card.side2;
+			$('#quiz .card').text(text);
+			$("#quiz .card").flip({
+				direction: 'rl',
+				color: '#ffffff'
+			});
+		} else {
+			current_side = 1;
 			current_card_index++;
 			if (current_card_index == cards.length) {
 				current_card_index = 0;
 			}
-		} else {
+			var current_card = cards[current_card_index];
 			var text = current_card.side1;
-			current_side = 1;
 			$('#current_position_counter .current').text(current_card_index + 1);
+			$('#quiz .card').fadeOut(function(){
+				$('#quiz .card').text(text);
+				$('#quiz .card').fadeIn();
+			});
 		}
-		$('#quiz .card').text(text);
 	});
 });
 </script>

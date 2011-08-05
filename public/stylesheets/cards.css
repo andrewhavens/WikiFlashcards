@@ -2,13 +2,23 @@
 	vertical-align: top;
 	border-bottom: 1px solid #ccc;
 	margin: 0;
-	padding: 0.5em;
+	padding: 0.25em 1em 0.25em;
 }
 
-#flashcards_list tr td:first-of-type {
-	border-right: 1px solid #ccc;
+#flashcards_list tr td:last-of-type {
+	padding: 0.25em 0.25em 0.25em 2em;
 }
 
-#flashcards_list tr:hover {
-	background-color: #eea;
+#flashcards_list thead tr {
+	background-color: #eee;
+}
+
+#flashcards_list thead tr th {
+	color: #999;
+	border-bottom: 1px solid #aaa;
+	padding: 0.25em;
+}
+
+#flashcards_list tbody tr:hover {
+	background-color: #ffc;
 }

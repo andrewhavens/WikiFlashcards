@@ -1,0 +1,52 @@
+<h1>History</h1>
+
+<table id="chapter_history" border="1">
+  <% @card_versions.each do |card_version| %>
+	<tr>
+		<td colspan="3">
+			<%= time_ago_in_words(card_version.created_at).capitalize %> ago:
+			<strong><%= User.find(card_version.whodunnit).first_name %></strong>
+			<% if (card_version.event == 'create') %>
+				added a new flashcard!
+			<% elsif (card_version.event == 'update') %>
+				updated an existing flashcard.
+			<% else %>
+				removed a flashcard.
+			<% end %>
+		</td>
+	</tr>
+		<% if (card_version.event == 'update') %>
+			<tr>
+				<td></td>
+				<td><%= @book.cards_side1 %></td>
+				<td><%= @book.cards_side2 %></td>
+			</tr>
+			<tr>
+				<td>Before</td>
+				<td>
+					<% if (card_version.changeset.has_key?('side1')) %>
+						<%= card_version.changeset['side1'].first %>
+					<% end %>
+				</td>
+				<td>
+					<% if (card_version.changeset.has_key?('side2')) %>
+						<%= card_version.changeset['side2'].first %>
+					<% end %>
+				</td>
+			</tr>
+			<tr>
+				<td>After</td>
+				<td>
+					<% if (card_version.changeset.has_key?('side1')) %>
+						<%= card_version.changeset['side1'].last %>
+					<% end %>
+				</td>
+				<td>
+					<% if (card_version.changeset.has_key?('side2')) %>
+						<%= card_version.changeset['side2'].last %>
+					<% end %>
+				</td>
+			</tr>
+	  <% end %>
+  <% end %>
+</table>

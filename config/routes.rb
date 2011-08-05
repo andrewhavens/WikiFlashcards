@@ -1,6 +1,6 @@
 Wikiflashcards::Application.routes.draw do
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' }
 
   resources :books do
     resources :chapters
@@ -12,11 +12,13 @@ Wikiflashcards::Application.routes.draw do
   
   resources :cards
 
-  match "chapters/:id/quiz" => "chapters#quiz", :as => :quiz_me
-    
-  match 'search' => 'home#search'
+  get 'chapters/:id/quiz' => 'chapters#quiz', :as => :quiz_me
+  get 'chapters/:id/history' => 'chapters#history', :as => :chapter_history
   
-  root :to => "home#index"
+  match 'search' => 'home#search'
+  match 'my-books' => 'books#my_books', :as => :my_books
+  
+  root :to => 'home#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

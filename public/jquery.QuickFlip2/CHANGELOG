@@ -1,0 +1,48 @@
+QuickFlip 2.1.1
+Released 08.23.2010
+
+- Fixes typo breaking noResize option
+- Fixes issues with passing options to $.quickFlipper
+
+-----
+
+QuickFlip 2.1
+Released 11.23.2009
+
+- Vertical QuickFlip added
+- Using jQuery's clone() method to duplicate the panels in the flip effect rather than custom methods (substantial performance boost with more robust cloning)
+- Addition of noResize option to disable the window resize event
+
+-----
+
+QuickFlip 2.0.1
+Released 11.22.2009
+
+- Minified version included with download - using YUI Compressor the filesize is 4kb :)
+- Small changes to allow YUI compressor to better compress the file (variable definitions chained etc.
+- Small performance boost on line 70 - using $('#blah').find('.blah') instead of $('.blah', '#blah');
+
+-----
+
+QuickFlip 2
+Released 07.13.2009
+
+- Major reworking of QuickFlip structure
+- $.quickFlip() can be chained from jQuery selectors
+- New $.quickFlipper() function is a vast improvement to $.quickFlip.flip(), since it can be chained to a jQuery selector and doesn't need to be passed any information
+- $.quickFlipper also initiates $.quickFlip() if it hasn't been called on the given node
+- QuickFlip 2 automatically applies necessary CSS styling, removing need for stylesheet inclusion
+- QuickFlip 2 automatically pulls in CSS dimensions, removing the need to define panel dimensions
+- Perfomance tuned
+- Namespacing issues with other Javascript libraries resolved
+- Browser error when using jquery v. 1.3.2 and IE8 resolved
+
+-----
+
+QuickFlip (original)
+Released 10.20.2008
+
+- jQuery flip effect that supports any type of HTML content
+- Requires certain classes to be applied in the markup
+- Requires some CSS styles and panel dimensions to be defined
+- $.quickFlip.flip() function can be used to trigger the flip, but needs to be passed the index of the quickFlip wrapper and the index of the next panel to show

@@ -1,0 +1,113 @@
+Documentation for QuickFlip 2
+(c) 2009 Jon Raasch (http://jonraasch.com)
+
+Full documentation: http://dev.jonraasch.com/quickflip/docs
+
+
+== Basic use of QuickFlip 2 ==
+
+Let's start with the markup. Since QuickFlip flips between a number of panels, we'll need a wrapper for each of them, which we will then need to wrap with something we can target:
+
+<div class="quickflip-wrapper">
+    <div>Front panel content</div>
+
+    <div>Back panel content</div>
+</div>
+    
+Next let's be sure we've included jquery.quickflip.js and the jquery library, then call $.quickFlip() on our wrapper when the page loads:
+$(function() {
+    $('.quickflip-wrapper').quickFlip();
+});
+    
+This will attach the QuickFlip to this node. QuickFlip automatically attaches a click event to anything with the class "quickFlipCta". To take advantage of this we can use a couple links:
+
+<div class="quickflip-wrapper">
+    <div>
+    <a href="#" class="quickFlipCta">Click to flip front panel</a>
+    </div>
+
+    <div>
+    <a href="#" class="quickFlipCta">Click to flip back panel</a>
+    </div>
+</div>
+
+Alternately, we can trigger the flip effect using the $.quickFlipper() function. Simply chain this to any jQuery object:
+$('.quickflip-wrapper').quickFlipper();
+    
+This can be attached to a click or hover event, or the custom function of your choice. Additionally, $.quickFlipper() will initiate the QuickFlip if $.quickFlip() hasn't yet been called on the given node. However it is best to pre-load the quickFlip for performance reasons.
+(If you only use $.quickFlipper() you should predefine some CSS styles: position: relative for your wrapper and position: absolute for each panel within)
+
+
+== Exposed Functions in QuickFlip 2 ==
+
+= $.quickFlip( options ) =
+
+Initiates the QuickFlip on the given node, attaching CSS styles and appending necessary DOM elements.
+
+- options (Object)
+  Option values (see below).
+
+= $.quickFlipper( options, nextPanel, repeater ) =
+
+Triggers the flip effect. If $.quickFlip() hasn't been called on the given node, $.quickFlipper() will call it first.
+
+- options (Object)
+  Option values (see below). These options will overwrite any set in $.quickFlip().
+- nextPanel (Integer)
+  Index of the next panel to be shown. By default this is null which automatically shows the next panel in the DOM, looping to the first panel if this doesn't exist.
+- repeater (Integer)
+  Number of times to flip the panel, set to -1 to repeat the flip effect indefinitely.
+
+= $.whichQuickFlip() =
+
+Determines the QuickFlip index of the node it is called upon. This is more for advanced use, and assists with interfacing the $.quickFlip.flip() function (See below).
+
+
+== Customizable options for QuickFlip 2 ==
+
+- closeSpeed (Number)
+  The number of milliseconds it takes to flip over and hide the front panel.
+  
+- openSpeed (Number)
+  The number of milliseconds it takes to flip over and show the back panel.
+  
+- easing (String)
+  If you are using the jQuery easing plugin (http://gsgd.co.uk/sandbox/jquery/easing/) pass the string of the easing method you want to use. There are also two easing methods built into jQuery, linear and swing. By default easing is set to swing.
+  
+- ctaSelector (jQuery Selector String)
+  QuickFlip attaches a click event to this jQuery selector that triggers the flip effect. Set to '', 0 or null to stop the process and speed things up a tiny bit.
+  
+- refresh (Boolean)
+  Provides an option to refresh the QuickFlip animation each time a flip is called. This is useful if the content within the flip changes visually, however is turned off by default for performance reasons.
+  
+- panelWidth (Number or CSS string)
+  This sets the width of the QuickFlip panels statically, and prevents QuickFlip from automatically generating this value based on the panel's dimensions (this can also be accomplished through simple CSS).
+  
+- panelHeight (Number or CSS string)
+  This sets the height of the QuickFlip panels statically, and prevents QuickFlip from automatically generating this value based on the panel's dimensions (this can also be accomplished through simple CSS).
+
+
+== Troubleshooting QuickFlip 2 ==
+
+= QuickFlip is removing the margin / padding from my panels =
+
+QuickFlip's animation requires that the panel wrappers and main wrapper have no margin or padding, so the script forces this setting when it loads.
+However the inner content of each panel can have any styling, so use an inner wrapper if you need margin or padding.
+
+= Portions of the QuickFlip panels are getting cut off =
+
+QuickFlip automatically pulls in the width and height of the first panel in the wrapper when $.quickFlip() is called. This can cause problems if any of the later panels are smaller than the first, or if content loads dynamically into the panel (for example if an image loads).
+The easiest way to get around this is to set a height and width for the QuickFlip panel, either via CSS or using the panelHeight and panelWidth QuickFlip options.
+
+= On page load the panels are tall for a moment, then flicker closed =
+
+When $.quickFlip() loads it aapplies some CSS to hide all but the initial panel. This will cause a brief flicker when the page loads, unless you apply this CSS ahead of time.
+
+The main styles to apply are position: relative to the QuickFlip wrapper, and position: absolute to the inner panel containers. You may also want to define a height and width for the wrapper panel.
+Other panel height and width issues
+
+If you are having other height and width issues, try applying a height and width to the main QuickFlip wrapper either via CSS or using the panelHeight and panelWidth QuickFlip options.
+
+
+
+Full documentation: http://dev.jonraasch.com/quickflip/docs

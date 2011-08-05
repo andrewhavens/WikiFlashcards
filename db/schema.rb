@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517045924) do
+ActiveRecord::Schema.define(:version => 20110728050546) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(:version => 20110517045924) do
     t.string   "cards_side1"
     t.string   "cards_side2"
   end
+
+  create_table "card_versions", :force => true do |t|
+    t.string   "item_type",      :null => false
+    t.integer  "item_id",        :null => false
+    t.string   "event",          :null => false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+    t.integer  "book_id"
+    t.integer  "chapter_id"
+    t.text     "object_changes"
+  end
+
+  add_index "card_versions", ["item_type", "item_id"], :name => "index_card_versions_on_item_type_and_item_id"
 
   create_table "cards", :force => true do |t|
     t.string   "side1"
@@ -60,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20110517045924) do
     t.datetime "updated_at"
     t.integer  "fb_user_id"
     t.string   "email_hash"
+    t.string   "first_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

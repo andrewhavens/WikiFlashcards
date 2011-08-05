@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>QuickFlip 2 Plugin for jQuery - Basic examples</title>
+
+<!-- adjust these paths as necessary -->
+
+<script src="../jquery.js" type="text/javascript"></script>
+<script src="../jquery.quickflip.source.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(function() {
+    $('.quickFlip').quickFlip();
+    
+    $('.quickFlip3').quickFlip({
+        vertical : true
+    });
+    
+    $('.quickFlip2').quickFlip();
+});
+</script>
+
+<!-- end quickflip javascript -->
+
+<link rel="stylesheet" type="text/css" href="css/basic-quickflips.css" />
+
+</head>
+
+<body>
+
+    <h1>QuickFlip 2 - Basic Examples</h1>
+    <h2>by <a href="http://jonraasch.com">Jon Raasch</a></h2>
+    
+    <br class="clear" />
+    
+    <div class="half-col">
+    
+    <p>
+    The <a href="http://jonraasch.com/blog/quickflip-2-jquery-plugin">jQuery QuickFlip Plugin</a> is easily applied to any piece of HTML markup, and works with custom backgrounds, images and any kind of content:
+    </p>
+    
+    <div class="quickFlip">
+        <div class="blackPanel">
+            <h3 class="first quickFlipCta">jQuery QuickFlip</h3>
+
+            <p class="panel-content"> QuickFlip takes any piece of HTML markup and flips it like a card. It's simple to implement and the animation is fresh and original. </p>
+            
+            <p>
+            <a href="#" class="quickFlipCta">Click to Flip</a>
+            </p>
+
+        </div>
+    
+        <div class="redPanel">
+            <h3 class="first quickFlipCta">QuickFlip 2</h3>
+            <h4>A plugin for jQuery</h4>
+            <p><em>By Jon Raasch</em></p>
+            
+            <p><a href="http://jonraasch.com/blog/quickflip-2-jquery-plugin">More About QuickFlip</a>
+            </p>
+            
+            <p><a href="#" class="quickFlipCta">Click to see QuickFlip in action</a>
+        </div>
+    </div>
+    
+    </div>
+    
+    
+    <div class="half-col">
+    
+    <p>
+    QuickFlip 2 can also flip vertically:
+    <br /><br />
+    </p>
+    
+    <div class="quickFlip3">
+        <div class="redPanel">
+            <h3 class="first quickFlipCta">Also Flips Vertically</h3>
+
+            <p class="panel-content"> QuickFlip's flip effect works horizontally and vertically</p>
+            
+            <p>
+            <a href="#" class="quickFlipCta">Click to Flip Vertically</a>
+            </p>
+
+        </div>
+    
+        <div class="blackPanel">
+            <h3 class="first quickFlipCta">QuickFlip 2</h3>
+            
+            <p><a href="#" class="quickFlipCta">Click to see QuickFlip in action</a>
+        </div>
+    </div>
+    
+    </div>
+    
+    <br class="clear" />
+
+    <p>
+    QuickFlip 2 automatically pulls in the dimensions of the object it's flipping.  The divs below use a percentage width:
+    </p>
+    
+    <div class="quickFlip2">
+        <div class="blackPanel">
+            <p> Front content here </p>
+            <p class="quickFlipCta">Click to Flip</p>
+            <p style="margin-top:30px;"><a href="http://jonraasch.com/blog/quickflip-2-jquery-plugin">More About QuickFlip</a></p>
+        </div>
+    
+        <div class="redPanel">
+            <p> Back content here </p>
+            <p class="quickFlipCta">Click to Flip</p>
+        </div>
+    </div>
+    
+    <div class="quickFlip2">
+        <div class="redPanel">
+            <p> Front content here </p>
+            <p class="quickFlipCta">Click to Flip</p>
+            <p style="margin-top:30px;"><a href="http://jonraasch.com/blog/quickflip-2-jquery-plugin">More About QuickFlip</a></p>
+        </div>
+    
+        <div class="blackPanel">
+            <p> Back content here </p>
+            <p class="quickFlipCta">Click to Flip</p>
+        </div>
+    </div>
+    
+    <br class="clear" /><br />
+
+    <p>
+        <a href="http://dev.jonraasch.com/quickflip/examples/hover-quickflips">QuickFlip example with a hover effect</a><br />
+        <a href="http://jonraasch.com/blog/quickflip-2-jquery-plugin">Read the QuickFlip 2 blog post</a><br />
+        <a href="http://dev.jonraasch.com/quickflip/docs">View the QuickFlip documentation</a>
+    </p>
+    
+    <p class="footer">
+    Copyright &copy;2009 <a href="http://jonraasch.com">Jon Raasch</a>
+    </p>
+
+</body>
+</html>
