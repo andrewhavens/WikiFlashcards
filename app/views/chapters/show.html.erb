@@ -1,6 +1,6 @@
 <h2><%= @chapter.title %><span class="action_link"><%= link_to 'Rename', edit_book_chapter_path(@book, @chapter) %></span></h2>
 
-<%= link_to "Quiz Me!", quiz_me_url(@chapter) %>
+<%= link_to "Quiz Me!", quiz_me_url(@chapter), :id => 'quiz_me' %>
 
 <% if @chapter.cards.empty? %>
 

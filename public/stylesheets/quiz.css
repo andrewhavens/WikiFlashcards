@@ -1,3 +1,21 @@
+a#quiz_me {
+	display: inline-block;
+	padding: 1em 2em;
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+	background: #ccc;
+	border: 1px solid #000;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+a#quiz_me:hover {
+	color: #fff;
+	background: #333;
+	text-decoration: none;
+}
+
 #quiz_layout #header_content {
   width: 100%;
 }
@@ -34,8 +52,8 @@
 	text-decoration: none;
 	border: 1px solid #000;
 	-webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
 	background-color: #000;
 	color: #fff;
 }

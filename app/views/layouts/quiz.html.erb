@@ -20,7 +20,14 @@
 
 <div id="header">
   <div id="header_content">
+  	
     <h1><a href="/">WikiFlashcards</a></h1>
+    
+    <ul id="main_nav">
+    	<li><%= link_to "My Books", my_books_path %></li>
+    	<li><%= link_to "Search", search_path %></li>
+    </ul>
+    
     <div id="auth_nav">
       <% if user_signed_in? %>
         <span class="email"><%= current_user.email %></span>
@@ -33,6 +40,7 @@
       <% end %>
     </div>
   </div>
+  <div style="clear: left"></div>
 </div>
 
 <%#= render 'chapters/quiz-sidebar' %>
