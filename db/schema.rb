@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110728050546) do
+ActiveRecord::Schema.define(:version => 20110811044031) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20110728050546) do
   create_table "chapters", :force => true do |t|
     t.string   "title"
     t.integer  "display_rank"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "my_books", :force => true do |t|
+    t.integer  "user_id"
     t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"

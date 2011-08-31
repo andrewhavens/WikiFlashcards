@@ -3,7 +3,7 @@
   <h2 class="category-heading">Books</h2>
 
   <% if @books.empty? %>
-    <p>No books found that match your search.</p>
+    <p>You have not saved any books yet. Search for a book, then click the button to add it to your list of saved books.</p>
   <% else %>
     <% @books.each do |book| %>
     <div class="book-result" onclick="location.href='<%= url_for book %>';">

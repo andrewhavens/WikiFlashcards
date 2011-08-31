@@ -4,4 +4,5 @@
   Author: <span class="book-author"><%= @book.author %></span><br />
   ISBN: <span class="book-isbns"><%= @book.isbn10 %> / <%= @book.isbn13 %></span><br />
   <%= link_to 'Edit Book Details', edit_book_path(@book), :class => 'edit' %>
+  <%= button_to 'Add To My Books', my_books_path(:book_id => @book.id), :remote => true, :method => :post, :class => 'add_to_my_books', 'data-book-id' => @book.id %>
 </div>
