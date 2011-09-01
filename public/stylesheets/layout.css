@@ -45,13 +45,27 @@
 }
 
 #auth_nav {
-  float: right;
+	float: right;
 	margin-right: 20px;
-  background-color: #fff;
+	/*background-color: #fff;*/
 }
 
 #auth_nav .email {
   font-weight: bold;
+}
+
+.sign-in-with-facebook a {
+	display:block;
+	width: 150px;
+	height: 22px;
+	text-indent: -900%;
+	outline: none;
+	background-image: url('/images/social_signin_buttons_icons/facebook_signin.png');
+	background-position: 0px 0px;
+}
+.sign-in-with-facebook a:hover {
+	background-image: url('/images/social_signin_buttons_icons/facebook_signin.png');
+	background-position: 0px 22px;
 }
 
 #sidebar {
@@ -64,6 +78,21 @@
 #content {
   width: 1000px;
   margin: 0 auto;
+  padding-top: 10px;
+}
+
+#notice {
+	text-align: center;
+	width: 300px;
+	margin: -10px auto 10px;
+	padding: 1em;
+	background-color: #ffb;
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 
 #footer {

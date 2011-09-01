@@ -1,4 +1,14 @@
 $(function(){
+	
+	if ($('#notice').is(':visible')) {
+		setTimeout(function(){
+			$('#notice').animate({
+				height: 0,
+				opacity: 0
+			}, 500);
+		}, 4000);
+	}
+	
 	$('#flashcards_list .card_actions').hide();
 	$('#flashcards_list tr').hover(function(){
 		$(this).find('.card_actions').show();

@@ -2,6 +2,9 @@ class HomeController < ApplicationController
   def index
   end
   
+  def about
+  end
+  
   def search
     @search = params[:search]
     @books = Book.search(@search)
