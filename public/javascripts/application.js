@@ -16,12 +16,12 @@ $(function(){
 		$(this).find('.card_actions').hide();
 	});
 	
-	// $('.add_to_my_books').live('click', function(event){
-	    // event.preventDefault();
-	    // $.post($(this).attr('href'), {
-	    	// 'book_id': $(this).attr('data-book-id')
-    	// }, function(data){}
-    	// );
-	// });
+	$('.add_to_my_books').live('click', function(event){
+	    event.preventDefault();
+	    $.post($(this).attr('href'), {
+	    	'book_id': $(this).attr('data-book-id')
+    	}, function(data){}
+    	);
+	});
 
 });

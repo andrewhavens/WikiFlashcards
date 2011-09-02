@@ -1,0 +1,13 @@
+<div id="auth_nav">
+  <% if user_signed_in? %>
+    Welcome, <span class="email"><%= current_user.first_name %></span>!
+    <span class="sign-out"><%= link_to "Sign out", destroy_user_session_path %></span>
+  <% else %>
+	<span class="sign-in-with-facebook"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></span>
+    <!--
+    <span class="sign-up"><%= link_to "Sign up", new_user_registration_path %></span> 
+    or 
+    <span class="sign-in"><%= link_to "Sign in", new_user_session_path %></span>
+    -->
+  <% end %>
+</div>

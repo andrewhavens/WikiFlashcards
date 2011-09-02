@@ -6,10 +6,26 @@
 
 #search-form input[type=text] {
   width: 75%;
-  border: 1px solid #000;
+  border: 1px solid #333;
   padding: 10px;
   height: 20px;
   font-size: 16px;
+}
+
+#search-form input[type=submit]{
+    display:inline-block;
+    margin:0 7px 0 0;
+    background-color:#EDE618;
+    border:2px solid #C4BE12;
+    border-top:2px solid #D9D216;
+    border-left:2px solid #D9D216;
+    font-size: 16px;
+    line-height:130%;
+    text-decoration:none;
+    font-weight:bold;
+    color:#000;
+    cursor:pointer;
+    padding: 10px 15px;
 }
 
 #search-results {
