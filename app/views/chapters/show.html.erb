@@ -5,11 +5,11 @@
 <% if @chapter.cards.empty? %>
 
 	<h3>Flashcards</h3>
-	<%= link_to 'Start by adding some cards', new_chapter_card_path(@chapter) %>
+	<%= link_to 'Start by adding some cards', new_chapter_card_path(@chapter), id: 'add_new_cards' %>
 
 <% else %>
 
-	<h3>Flashcards <span class="action_link"><%= link_to 'Add more cards', new_chapter_card_path(@chapter) %></span></h3>
+	<h3>Flashcards <span class="action_link"><%= link_to 'Add more cards', new_chapter_card_path(@chapter), id: 'add_new_cards' %></span></h3>
 	<table id="flashcards_list" cellspacing="0">
 		<thead>
 			<tr>
@@ -29,15 +29,11 @@
 		</tbody>
 	</table>
 
-	<!-- <a id="add_new_card" href="#">Add more cards</a> -->
-	<div id="new_card_form" style="display:none">
-	  <%= render "cards/form" %> 
-	</div>
-
 <% end %>
 
-<h3>History</h3>
-<%= link_to "View Full History", chapter_history_path(@chapter) %>
+<%= render "cards/quick_entry_form" %>
+
+<h3>History <span class="action_link"><%= link_to "View Full History", chapter_history_path(@chapter) %></span></h3>
 <ul id="chapter_history">
 <% @card_versions.each do |card_version| %>
 	<li>

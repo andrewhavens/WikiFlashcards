@@ -1,0 +1,17 @@
+<div id="quick_add_card_form" style="display:none">
+<%= form_for [@chapter, @card] do |f| %>
+<table>
+	<tbody>
+		<tr class="text_fields">
+			<td><%= f.text_field :side1, :size => nil %></td>
+			<td><%= f.text_field :side2, :size => nil %></td>
+			<td></td>
+		</tr>
+		<tr class="submit_button">
+			<td colspan="2" style="text-align:center"><%= f.submit 'Save' %></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+<% end %>
+</div>

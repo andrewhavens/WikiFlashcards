@@ -2,55 +2,25 @@
 <html>
 <head>
   <title>WikiFlashcards</title>
-  <%= stylesheet_link_tag "scaffold.css" %>
-  <%= stylesheet_link_tag "layout.css" %>
-  <%= stylesheet_link_tag "typography.css" %>
-  <%= stylesheet_link_tag "quiz.css" %>
-  <%= stylesheet_link_tag "jquery-ui-custom-theme/jquery-ui-1.8.6.custom.css" %>
-  <%#= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
-  <%#= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" %>
-  <%= javascript_include_tag "jquery.min.js" %>
-  <%= javascript_include_tag "jquery-ui.min.js" %>
-  <%= javascript_include_tag "jquery.flip.min.js" %>
-  <%= javascript_include_tag "rails.js" %>
-  <%= javascript_include_tag "application.js" %>
-  <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
 </head>
 <body id="quiz_layout">
 
-<div id="header">
-  <div id="header_content">
-  	
-    <h1><a href="/">WikiFlashcards</a></h1>
-    
-    <ul id="main_nav">
-    	<li><%= link_to "My Books", my_books_path %></li>
-    	<li><%= link_to "Search", search_path %></li>
-    </ul>
-    
-    <div id="auth_nav">
-      <% if user_signed_in? %>
-        <span class="email"><%= current_user.email %></span>
-        <span class="sign-out"><%= link_to "Sign out", destroy_user_session_path %></span>
-      <% else %>
-		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-        <span class="sign-up"><%= link_to "Sign up", new_user_registration_path %></span> 
-        or 
-        <span class="sign-in"><%= link_to "Sign in", new_user_session_path %></span>
-      <% end %>
-    </div>
-  </div>
-  <div style="clear: left"></div>
-</div>
-
-<%#= render 'chapters/quiz-sidebar' %>
+<%= render 'layouts/header' %>
 
 <div id="content">
-  <p id="notice"><%= notice %></p>
-  <p id="alert"><%= alert %></p>
+	<% if notice %>
+	  <p id="notice"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+	  <p id="alert"><%= alert %></p>
+	<% end %>
   <%= yield %>
 </div>
 
-<div id="footer"></div>
+<%= render 'layouts/footer' %>
+
 </body>
 </html>

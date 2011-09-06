@@ -4,7 +4,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @chapter = @book.chapters.new #for new chapter modal
+    @chapter = Chapter.new #for new chapter modal
+    @chapter.book_id = @book.id
     respond_with(@book)
   end
 

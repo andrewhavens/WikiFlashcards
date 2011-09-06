@@ -22,3 +22,5 @@
 #flashcards_list tbody tr:hover {
 	background-color: #ffc;
 }
+
+#flashcards_list form#new_card {}

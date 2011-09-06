@@ -12,7 +12,8 @@ class ChaptersController < ApplicationController
   def show
     @book = Book.find(params[:book_id])
     @chapter = Chapter.find(params[:id])
-    @card = @chapter.cards.new #for new card modal
+    @card = Card.new #for new card modal
+    @card.chapter_id = @chapter.id
     @card_versions = CardVersion.where('chapter_id = ?', @chapter.id).order('created_at DESC')
     respond_with(@chapter)
   end

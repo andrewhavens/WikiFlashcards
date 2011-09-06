@@ -2,9 +2,9 @@
 <!--<a href="#" id="reorder_chapters">Reorder</a>-->
 <ul id="chapters_list">
 <% @book.chapters.each do |chapter| %>
-	<% current_chapter = @chapter.id unless @chapter == nil %>
+	<% #current_chapter = chapter.id unless chapter == nil %>
 	<a href="<%= book_chapter_path(@book, chapter) %>">
-  	<li class="<%= 'current' if chapter.id == current_chapter %>">
+  	<li class="<%#= 'current' if chapter.id == current_chapter %>">
 			<span class="card_count"><%= chapter.cards.length %> cards</span>
 			<%= chapter.title %>
 		</li>

@@ -79,11 +79,11 @@
 	height: 22px;
 	text-indent: -9999%;
 	outline: none;
-	background-image: url('/images/social_signin_buttons_icons/facebook_signin.png');
+	background-image: url('/assets/social_signin_buttons_icons/facebook_signin.png');
 	background-position: 0px 0px;
 }
 .sign-in-with-facebook a:hover {
-	background-image: url('/images/social_signin_buttons_icons/facebook_signin.png');
+	background-image: url('/assets/social_signin_buttons_icons/facebook_signin.png');
 	background-position: 0px 22px;
 }
 
