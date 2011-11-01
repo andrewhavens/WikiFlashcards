@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
 
+#server
+gem 'thin'
+
 gem 'rails', '3.1.0'
 group :assets do
   gem 'sass-rails', "~> 3.1.0"
@@ -8,7 +11,13 @@ group :assets do
 end
 gem 'jquery-rails'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+group :development, :test do
+	gem 'sqlite3-ruby', :require => 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
+
 gem 'rack-mobile-detect', :require => 'rack/mobile-detect'
 
 #authentication gems
