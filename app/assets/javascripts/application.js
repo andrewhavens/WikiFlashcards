@@ -47,9 +47,16 @@ $(function(){
 					$fields.each(function(){
 						$form.find('#' + $(this).attr('id')).val($(this).val());
 					});
-					$.post($form.attr('action'), $form.serialize(), function(){
-						alert('saved successfully');
+					$.post($form.attr('action'), $form.serialize(), function(data){
+						console.log(data);
 						//now remove the fields and replace with a normal row
+						var $newRow = $('<tr />');
+						$fields.each(function(){
+							$newRow.append('<td>' + $(this).val() + '</td>');
+						});
+						$newRow.append('<td />');
+						$fields.closest('tr').before($newRow);
+						$fields.closest('tr').remove();
 					});
 				}
 			});
